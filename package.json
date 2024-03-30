@@ -1,14 +1,13 @@
 {
   "name": "@web3-fullstack/layer-saas",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./nuxt.config.ts",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck"
   },
