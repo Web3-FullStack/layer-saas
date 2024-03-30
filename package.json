@@ -1,0 +1,24 @@
+{
+  "name": "@web3-fullstack/layer-saas",
+  "type": "module",
+  "version": "0.0.1",
+  "main": "./nuxt.config.ts",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@web3-fullstack/layer": "*"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.1.5",
+    "@nuxt/eslint-config": "^0.2.0",
+    "eslint": "^8.57.0",
+    "vue-tsc": "^2.0.7"
+  }
+}
