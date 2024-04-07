@@ -1,8 +1,12 @@
 {
   "name": "@web3-fullstack/layer-saas",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./nuxt.config.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Web3-FullStack/layer-sass"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
