@@ -1,11 +1,11 @@
 {
   "name": "@web3-fullstack/layer-saas",
   "type": "module",
-  "version": "0.0.6",
+  "version": "0.0.5",
   "main": "./nuxt.config.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Web3-FullStack/layer-sass"
+    "url": "https://github.com/Web3-FullStack/layer-saas"
   },
   "scripts": {
     "build": "nuxt build",
@@ -13,10 +13,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint .",
+    "release": "release-it",
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@web3-fullstack/layer": "*",
+    "@web3-fullstack/layer": "0.0.9",
     "date-fns": "^3.6.0",
     "nuxt": "^3.11.1",
     "v-calendar": "^3.1.2"
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@nuxt/devtools": "^1.1.5",
     "@nuxt/eslint-config": "^0.2.0",
+    "release-it": "^17.1.1",
     "eslint": "^8.57.0",
     "vue-tsc": "^2.0.7"
   }
