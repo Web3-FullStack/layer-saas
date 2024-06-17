@@ -4,14 +4,12 @@ interface Props {
 }
 const { endTime = "YYYY-MM-DDTHH:mm" } = defineProps<Props>();
 
-const { secs, mins, hrs, days, startCounting, stopCounting, isCounting, errMsg, totalDays } = $(
-  useCountDown({
-    source: endTime,
-    callback: () => {
-      console.log("target");
-    },
-  })
-);
+const { secs, mins, hrs, days, startCounting, stopCounting, isCounting, errMsg, totalDays } = useCountDown({
+  source: endTime,
+  callback: () => {
+    console.log("target");
+  },
+});
 
 onMounted(startCounting);
 </script>
