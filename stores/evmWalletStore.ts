@@ -57,7 +57,7 @@ export const evmWalletStore = defineStore("evmWalletStore", () => {
     return true;
   };
 
-  const getBrowserWalletInstance = async (network) => {
+  const login = async (network) => {
     const chain = networkMap[network]
     const [account] = await window.ethereum.request({ method: "eth_requestAccounts" });
     web3Client = createWalletClient({
@@ -72,6 +72,19 @@ export const evmWalletStore = defineStore("evmWalletStore", () => {
 
     address = web3Client.account.address;
     setLsItem('evmAddress', address)
+  }
+
+  const logout = async () => {
+    address = null
+    setLsItem('evmAddress', null)
+    await window.ethereum.request({
+      "method": "wallet_revokePermissions",
+      "params": [
+        {
+          "eth_accounts": {}
+        }
+      ]
+    })
   }
 
   const readContract = async (contractName, functionName, { walletClient = null }, ...args) => {
@@ -175,7 +188,7 @@ export const evmWalletStore = defineStore("evmWalletStore", () => {
     }
   };
 
-  return $$({ address, web3Client, signer, network, readContract, writeContract, getBrowserWalletInstance });
+  return $$({ address, web3Client, signer, network, readContract, writeContract, login, logout })
 });
 
 if (import.meta.hot) import.meta.hot.accept(acceptHMRUpdate(evmWalletStore, import.meta.hot));

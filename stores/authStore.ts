@@ -1,6 +1,6 @@
 export const authStore = defineStore('authStore', () => {
   const { auth } = $(supabaseStore());
-  const { getBrowserWalletInstance, network, address } = $(evmWalletStore());
+  const { login, network, address, logout } = $(evmWalletStore());
   const meta = $ref({});
 
   let isLoading = $ref(false)
@@ -18,8 +18,9 @@ export const authStore = defineStore('authStore', () => {
   // onMounted(updateRedirectUrl)
 
   const providerMap = {
-    metamask: async () => {
-      await getBrowserWalletInstance(network);
+    metamask: {
+      login,
+      logout,
     }
   }
   const doLogin = async (provider) => {
@@ -27,7 +28,7 @@ export const authStore = defineStore('authStore', () => {
     
     isLoading = true;
     if (providerMap[provider]) {
-    await providerMap[provider]()
+      await providerMap[provider].login(network)
       isLoading = false
       return
     }
@@ -44,8 +45,10 @@ export const authStore = defineStore('authStore', () => {
   };
 
   const doLogout = async (provider) => {
-    console.log(`====> provider :`, provider)
-    
+     if (providerMap[provider]) {
+      await providerMap[provider].logout()
+      return
+    }
   }
 
   return $$({ doLogin, doLogout, updateMeta, updateRedirectUrl, isLoading, address })
