@@ -46,7 +46,6 @@ export function useCountDown({source = 0, callback = null}) {
         totalDays.value = Math.floor( Math.floor( Math.abs( Date.now() - unixTimeStamp ) / 1000 ) / (60 * 60 * 24) )
 
         countingInterval = setInterval(() => {
-    
             const diff =  Math.floor( Math.abs( Date.now() - unixTimeStamp ) / 1000 )
 
             if(diff === 0){
@@ -63,7 +62,6 @@ export function useCountDown({source = 0, callback = null}) {
             days.value = Math.floor(diff / (60 * 60 * 24))
     
         }, 1000)
-
     }
 
     const stopCounting = () => {

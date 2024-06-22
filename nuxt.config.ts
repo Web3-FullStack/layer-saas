@@ -1,6 +1,8 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   extends: [process.env.WEB3_FULL_STACK_LAYER_PATH || '@web3-fullstack/layer'],
+  imports: {
+    dirs: ['stores']
+  },
   modules: [
   ],
   ui: {
