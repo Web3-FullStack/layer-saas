@@ -1,7 +1,7 @@
 {
   "name": "@web3-fullstack/layer-saas",
   "type": "module",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "./nuxt.config.ts",
   "repository": {
     "type": "git",
@@ -19,11 +19,15 @@
   "dependencies": {
     "@dicebear/collection": "^9.0.1",
     "@dicebear/core": "^9.0.1",
+    "@wagmi/connectors": "^5.0.25",
+    "@wagmi/core": "^2.12.1",
     "@web3-fullstack/layer": "0.0.11",
+    "@web3modal/wagmi": "^5.0.6",
     "date-fns": "^3.6.0",
     "nft.storage": "^7.1.1",
     "nuxt": "^3.11.1",
-    "v-calendar": "^3.1.2"
+    "v-calendar": "^3.1.2",
+    "viem": "^2.17.4"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.1.5",

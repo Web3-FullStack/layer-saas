@@ -11,10 +11,14 @@ export const authStore = defineStore('authStore', () => {
 
   const updateRedirectUrl = () => {
     const redirectPath = `${location.origin}${location.pathname}`
-    // console.log(`====> redirectPath :`, redirectPath)
+    console.log(`====> redirectPath :`, redirectPath)
     updateMeta('redirectPath', redirectPath)
   }
   // watch on useRoute
+  const route = useRoute();
+  watch(route, () => {
+    updateRedirectUrl()
+  })
   // onMounted(updateRedirectUrl)
 
   const providerMap = {
@@ -33,7 +37,7 @@ export const authStore = defineStore('authStore', () => {
       return
     }
 
-    const redirectTo = `${location.origin}/confirm?to=${meta.redirectPath}`;
+    const redirectTo = `${location.origin}/confirm?to=${meta.redirectPath}`
     await auth.signInWithOAuth({
       provider,
       options: {
