@@ -21,7 +21,7 @@
     "@dicebear/core": "^9.0.1",
     "@wagmi/connectors": "^5.0.25",
     "@wagmi/core": "^2.12.1",
-    "@web3-fullstack/layer": "0.0.11",
+    "@web3-fullstack/layer": "0.0.12",
     "date-fns": "^3.6.0",
     "nft.storage": "^7.1.1",
     "nuxt": "^3.11.1",

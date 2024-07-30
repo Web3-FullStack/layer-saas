@@ -5,7 +5,7 @@ export const supabaseStore = defineStore('supabaseStore', () => {
   const supabase = useSupabaseClient()
   const user = $(useSupabaseUser())
   const userId = $computed(() => user?.id || '')
-  console.log(`====> userId :`, userId)
+  // console.log(`====> userId :`, userId)
   const metadata = $computed(() => user?.user_metadata || {})
   const avatar = $computed(() => {
     if (metadata.avatar_url) {
