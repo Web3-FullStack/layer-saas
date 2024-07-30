@@ -13,7 +13,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint .",
-    "release": "git commit -am 'bump up version' &&release-it",
+    "release": "git commit -am 'bump up version' && release-it",
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
