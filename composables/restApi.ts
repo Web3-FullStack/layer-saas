@@ -8,7 +8,7 @@ export const usePost = async (url, body = {}) => {
 }
 
 export const useGetRequest = async (url, query = {}, headers = {}) => {
-  if (url.startsWith('http')) {
+  if (!url.startsWith('http')) {
     headers = {
       ...headers,
       ...useRequestHeaders(['cookie'])
@@ -21,4 +21,20 @@ export const useGetRequest = async (url, query = {}, headers = {}) => {
     query,
   }
   return useFetch(url, opts)
+}
+
+export const getRequest = async (url, query = {}, headers = {}) => {
+  if (!url.startsWith('http')) {
+    headers = {
+      ...headers,
+      ...useRequestHeaders(['cookie'])
+    }
+  }
+
+  const opts = {
+    headers,
+    method: 'GET',
+    query,
+  }
+  return $fetch(url, opts)
 }

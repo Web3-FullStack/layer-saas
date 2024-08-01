@@ -1,5 +1,6 @@
 import { formatUnits as formatUnitsViem } from 'viem'
 import {formatEther as formatEtherViem} from 'viem'
+import {getAddress as getAddressViem} from 'viem'
 export { parseEther, formatEther, parseUnits, getAddress } from 'viem'
 
 export const formatUnits = function (val, precision = 18, fraction = 4) {
@@ -23,13 +24,19 @@ export const humanFormatEther = (num) => {
   return numberFormat(formatEtherViem(num))
 }
 
-export const shortAddress = address => address ? `${address.substr(0, 6)}...${address.substr(-4)}` : ''
+export const shortAddress = (address, totalLen = 12) => {
+  const firstLen = parseInt(totalLen / 2)
+  const lastLen = totalLen - firstLen
+  const first = address.substr(0, firstLen)
+  const last = address.substr(0 - lastLen)
+  return address ? `${first}...${last}` : ''
+}
 
 // export const chatLink = address => `https://chat.web3nft.social/dm/${address}`
 export const chatLink = (address) => {
   if (!address)
     return ''
-  address = getAddress(address)
+  address = getAddressViem(address)
   return `https://chat.web3nft.social/dm/${address}`
   // return `https://chat.blockscan.com/index?a=${address}`
 }
@@ -40,14 +47,14 @@ export const isSameAddress = (a, b) => {
   if (!a || !b)
     return false
 
-  a = getAddress(a)
-  b = getAddress(b)
+  a = getAddressViem(a)
+  b = getAddressViem(b)
   return a === b
 }
 
 export const isValidateAddress = (address) => {
   try {
-    return getAddress(unref(address))
+    return getAddressViem(unref(address))
   }
   catch (e) {
     return false
