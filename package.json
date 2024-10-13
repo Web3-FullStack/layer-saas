@@ -19,9 +19,12 @@
   "dependencies": {
     "@dicebear/collection": "^9.0.1",
     "@dicebear/core": "^9.0.1",
+    "@iconify/json": "^2.2.259",
+    "@permaweb/aoconnect": "^0.0.59",
     "@wagmi/connectors": "^5.0.25",
     "@wagmi/core": "^2.12.1",
     "@web3-fullstack/layer": "0.0.13",
+    "arweave-wallet-connector": "^1.0.2",
     "date-fns": "^3.6.0",
     "nft.storage": "^7.1.1",
     "v-calendar": "^3.1.2",
@@ -30,8 +33,10 @@
   "devDependencies": {
     "@nuxt/devtools": "^1.1.5",
     "@nuxt/eslint-config": "^0.2.0",
+    "@unocss/nuxt": "^0.62.3",
     "eslint": "^8.57.0",
     "release-it": "^17.1.1",
+    "unocss": "^0.62.3",
     "vue-tsc": "^2.0.7"
   }
 }

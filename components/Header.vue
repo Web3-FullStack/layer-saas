@@ -1,22 +1,39 @@
 <script setup lang="ts">
-import type { NavItem } from "@nuxt/content/dist/runtime/types";
-
-const navigation = inject<Ref<NavItem[]>>("navigation", ref([]));
-
 const appConfig = useAppConfig();
+const { isLoading, doLogin, address, doLogout } = $(authStore());
+const { isLogin } = $(supabaseStore());
 </script>
 
 <template>
   <UHeader :links="appConfig.links">
-    <template #logo>{{ appConfig.title }} <UBadge :label="appConfig.titleBadge" variant="subtle" class="mb-0.5" /> </template>
-
-    <template #right>
-      <UButton label="Sign in" color="gray" to="/login" />
-      <UButton label="Sign up" icon="i-heroicons-arrow-right-20-solid" trailing color="black" to="/signup" class="hidden lg:flex" />
+    <template #logo>
+      <div
+        class="flex text-rainbow animate-pulse text-2xl justify-center items-center"
+      >
+        {{ appConfig.title }}
+        <UBadge
+          :label="appConfig.titleBadge"
+          variant="subtle"
+          class="mb-0.5 ml-2"
+        />
+      </div>
     </template>
 
-    <template #panel>
-      <UNavigationTree :links="mapContentNavigation(navigation)" default-open />
+    <template #right>
+      <Loading :isLoading="isLoading" >
+        <div class="flex-bc space-x-2">
+          <PwaConnector v-if="isLogin" />
+          <UniConnector v-if="isLogin" />
+          <UButton
+            v-if="!isLogin"
+            label="Auth with X"
+            :loading="isLoading"
+            color="gray"
+            @click="doLogin('twitter')"
+          />
+        </div>
+      </Loading>
+      <UserDropdown v-if="isLogin"/>
     </template>
   </UHeader>
 </template>

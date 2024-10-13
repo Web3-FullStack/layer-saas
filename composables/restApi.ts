@@ -1,6 +1,12 @@
-export const usePost = async (url, body = {}) => {
+export const usePost = async (url, body = {}, headers = {}) => {
+    if (!url.startsWith('http')) {
+    headers = {
+      ...headers,
+      ...useRequestHeaders(['cookie'])
+    }
+  }
   const opts = {
-    headers: useRequestHeaders(['cookie']),
+    headers,
     method: 'POST',
     body,
   }
@@ -37,4 +43,27 @@ export const getRequest = async (url, query = {}, headers = {}) => {
     query,
   }
   return $fetch(url, opts)
+}
+
+export const postRequest = async (url, body = {}, headers = {}) => {
+  if (!url.startsWith('http')) {
+    headers = {
+      ...headers,
+      ...useRequestHeaders(['cookie'])
+    }
+  }
+
+  const opts = {
+    headers,
+    method: 'POST',
+    body,
+  }
+  try{
+    const rz = await $fetch(url, opts)
+    return rz
+  }catch(error){
+    return {
+      error
+    }
+  }
 }
