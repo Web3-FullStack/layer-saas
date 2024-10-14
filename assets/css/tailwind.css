@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-rainbow {
+    @apply bg-gradient-to-r bg-clip-text font-black from-teal-500 via-purple-500 to-orange-500 text-transparent;
+  }
+  .flex-cc {
+    @apply flex justify-center items-center;
+  }
+  .flex-bc {
+    @apply flex justify-between items-center;
+  }
+  .flex-ec {
+    @apply flex justify-end items-center;
+  }
+}
