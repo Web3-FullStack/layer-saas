@@ -13,7 +13,7 @@ export const addressBindStore = defineStore("addressBindStore", () => {
     const rz = await getRequest("/api/me/bindAddress", { network });
     if (rz.error) {
       alertWithModal(
-        "bindAddressModal",
+        "bindAddress",
         "Sign message",
         "Please sign the message below to bind your address",
         { network, address }

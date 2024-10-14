@@ -49,12 +49,15 @@ export const authStore = defineStore("authStore", () => {
   };
 
   const doLogout = async (provider) => {
+    if (isLoading) return;
+    isLoading = true;
     await auth.signOut();
     if (providerMap[provider]) {
       await providerMap[provider].logout();
     }
     // Add this line to redirect to the home page after logout
     navigateTo("/");
+    isLoading = false;
   };
 
   return $$({

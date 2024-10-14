@@ -1,13 +1,13 @@
 import alertModal from "@/components/modal/alert.vue";
-import authWithXModal from "@/components/modal/authWithX.vue";
-import connectAOModal from "@/components/modal/connectAO.vue";
-import bindAddressModal from "@/components/modal/bindAddress.vue";
+import authWithX from "@/components/modal/authWithX.vue";
+import connectAO from "@/components/modal/connectAO.vue";
+import bindAddress from "@/components/modal/bindAddress.vue";
 import faqModal from "@/components/modal/faq.vue";
 
 const modalMap = {
-  authWithXModal,
-  connectAOModal,
-  bindAddressModal,
+  authWithX,
+  connectAO,
+  bindAddress,
   faqModal,
 };
 
