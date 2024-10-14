@@ -22,7 +22,7 @@ const { isLogin } = $(supabaseStore());
     <template #right>
       <Loading :isLoading="isLoading" >
         <div class="flex-bc space-x-2">
-          <PwaConnector v-if="isLogin" />
+          <PwaConnector v-if="isLogin && appConfig.pwaConnector" />
           <UniConnector v-if="isLogin" />
           <UButton
             v-if="!isLogin"

@@ -26,6 +26,7 @@ export default defineAppConfig({
       },
     ];
   },
+  pwaConnector: true,
   ui: {
     primary: "sky",
     gray: "cool",

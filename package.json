@@ -17,13 +17,14 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@vue-macros/reactivity-transform": "^1.1.1",
     "@web3-fullstack/layer": "0.0.14",
     "@dicebear/collection": "^9.0.1",
     "@dicebear/core": "^9.0.1",
     "@iconify/json": "^2.2.259",
     "@permaweb/aoconnect": "^0.0.59",
+    "@vue-macros/reactivity-transform": "^1.1.1",
     "@wagmi/connectors": "^5.0.25",
+    "nuxt-countdown": "^1.1.1",
     "@wagmi/core": "^2.12.1",
     "arweave-wallet-connector": "^1.0.2",
     "date-fns": "^3.6.0",
