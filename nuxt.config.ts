@@ -1,11 +1,12 @@
 import { createResolver } from "@nuxt/kit";
 const { resolve } = createResolver(import.meta.url);
+import ReactivityTransform from '@vue-macros/reactivity-transform/vite'
 
 if (process.env.NODE_ENV === "development") {
   console.log("========== this is layer-saas-local ============");
 }
 export default defineNuxtConfig({
-  css: [resolve('./tailwind.css')],
+  css: [resolve("./tailwind.css")],
   extends: [process.env.WEB3_FULL_STACK_LAYER_PATH || "@web3-fullstack/layer"],
   imports: {
     dirs: [resolve("./stores/**")],
@@ -24,5 +25,10 @@ export default defineNuxtConfig({
   },
   devtools: {
     enabled: true,
-  }
+  },
+  vite: {
+    plugins: [
+      ReactivityTransform(),
+    ],
+  },
 });
