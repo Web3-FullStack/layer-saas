@@ -1,6 +1,5 @@
 import { createResolver } from '@nuxt/kit'
 const { resolve } = createResolver(import.meta.url)
-import ReactivityTransform from '@vue-macros/reactivity-transform/vite'
 
 if (process.env.NODE_ENV === 'development') {
   console.log('========== this is layer-saas-local ============')
@@ -26,8 +25,10 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+  macros: {
+    reactivityTransform: true,
+  },
   vite: {
-    plugins: [ReactivityTransform()],
     optimizeDeps: {
       include: ['@supabase/supabase-js'],
     },
