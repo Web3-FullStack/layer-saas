@@ -1,34 +1,40 @@
-import { createResolver } from "@nuxt/kit";
-const { resolve } = createResolver(import.meta.url);
+import { createResolver } from '@nuxt/kit'
+const { resolve } = createResolver(import.meta.url)
 import ReactivityTransform from '@vue-macros/reactivity-transform/vite'
 
-if (process.env.NODE_ENV === "development") {
-  console.log("========== this is layer-saas-local ============");
+if (process.env.NODE_ENV === 'development') {
+  console.log('========== this is layer-saas-local ============')
 }
 export default defineNuxtConfig({
-  css: [resolve("./tailwind.css")],
-  extends: [process.env.WEB3_FULL_STACK_LAYER_PATH || "@web3-fullstack/layer"],
+  css: [resolve('./tailwind.css')],
+  extends: [process.env.WEB3_FULL_STACK_LAYER_PATH || '@web3-fullstack/layer'],
   imports: {
-    dirs: [resolve("./stores/**")],
+    dirs: [resolve('./stores/**')],
   },
   app: {
     pageTransition: {
-      name: "page",
-      mode: "out-in",
+      name: 'page',
+      mode: 'out-in',
     },
   },
   experimental: {
     viewTransition: true,
   },
   ui: {
-    safelistColors: ["primary", "red", "orange", "green"],
+    safelistColors: ['primary', 'red', 'orange', 'green'],
   },
   devtools: {
     enabled: true,
   },
   vite: {
-    plugins: [
-      ReactivityTransform(),
-    ],
+    plugins: [ReactivityTransform()],
+    optimizeDeps: {
+      include: ['@supabase/supabase-js'],
+    },
+    build: {
+      rollupOptions: {
+        external: ['@supabase/supabase-js', 'vue', 'vue-router', 'lodash'],
+      },
+    },
   },
-});
+})
